@@ -1,0 +1,6 @@
+@MAD_TRPO21_ASP.Net_HostAddress = http://localhost:5185
+
+GET {{MAD_TRPO21_ASP.Net_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
