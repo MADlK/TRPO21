@@ -18,7 +18,7 @@ namespace MAD_TRPO21_ASP.Net.Controllers
             List<Device> list = db.Devices.ToList();
             if(!String.IsNullOrEmpty(Manufacturer))
             {
-                list = list.Where(b => b.Manufacturer == Manufacturer).ToList();
+                list = list.Where(b => b.Manufacturer.Contains(Manufacturer)  ).ToList();
             }
             if(minPrice.HasValue)
             {
