@@ -95,11 +95,15 @@ namespace MAD_TRPO21_ASP.Net.Controllers
         [HttpPut("{id:int}")]
         public IActionResult AllEdit(int id, [FromBody] Device pdevice)
         {
-            var d =db.Devices.FirstOrDefault(y => y.Id == id);
+            var d = db.Devices.FirstOrDefault(y => y.Id == id);
             if (d == null || d is not Device)
                 return NotFound();
-            d = pdevice;
-            d.Id = id;
+            d.Name = pdevice.Name;
+            d.Quantity = pdevice.Quantity;
+            d.Price = pdevice.Price;
+            d.IsActive = pdevice.IsActive;
+            d.Manufacturer = pdevice.Manufacturer;
+            
             db.SaveChanges();
             return Ok();
         }
